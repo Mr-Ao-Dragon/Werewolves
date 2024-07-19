@@ -10,9 +10,7 @@ import de.teamlapen.vampirism.api.entity.factions.IFaction;
 import de.teamlapen.vampirism.api.entity.player.actions.IAction;
 import de.teamlapen.vampirism.api.entity.player.actions.IActionHandler;
 import de.teamlapen.vampirism.api.entity.player.skills.ISkillHandler;
-import de.teamlapen.vampirism.api.entity.player.skills.SkillType;
 import de.teamlapen.vampirism.entity.factions.FactionPlayerHandler;
-import de.teamlapen.vampirism.entity.minion.VampireMinionEntity;
 import de.teamlapen.vampirism.entity.player.FactionBasePlayer;
 import de.teamlapen.vampirism.entity.player.LevelAttributeModifier;
 import de.teamlapen.vampirism.entity.player.actions.ActionHandler;
@@ -24,7 +22,6 @@ import de.teamlapen.werewolves.api.WReference;
 import de.teamlapen.werewolves.api.WerewolvesAttachments;
 import de.teamlapen.werewolves.api.entities.player.IWerewolfPlayer;
 import de.teamlapen.werewolves.api.entities.werewolf.WerewolfForm;
-import de.teamlapen.werewolves.api.items.IWerewolfArmor;
 import de.teamlapen.werewolves.config.WerewolvesConfig;
 import de.teamlapen.werewolves.core.*;
 import de.teamlapen.werewolves.effects.LupusSanguinemEffect;
@@ -177,13 +174,7 @@ public class WerewolfPlayer extends FactionBasePlayer<IWerewolfPlayer> implement
     }
 
     public boolean canWearArmor(WerewolfForm form, ItemStack stack) {
-        if (stack.isEmpty()) {
-            return true;
-        } else if (stack.getItem() instanceof IWerewolfArmor armor) {
-            return armor.canWear(this, form);
-        } else {
-            return form.isHumanLike() && (!form.isTransformed() || this.getSkillHandler().isSkillEnabled(ModSkills.WEAR_ARMOR.get()));
-        }
+        return true;
     }
 
     public void removeArmorModifier() {

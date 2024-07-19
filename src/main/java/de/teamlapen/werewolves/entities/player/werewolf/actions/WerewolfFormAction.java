@@ -139,7 +139,7 @@ public abstract class WerewolfFormAction extends DefaultWerewolfAction implement
 
     public boolean usesTransformationTime(IWerewolfPlayer werewolf) {
         Player player = werewolf.asEntity();
-        return !Helper.isNight(player.level()) && !FormHelper.isInWerewolfBiome(player.level(), player.blockPosition());
+        return false;
     }
 
     protected boolean increaseWerewolfTime(IWerewolfPlayer werewolfPlayer) {
